@@ -12,7 +12,8 @@ app.get("/", function (req, res) {
 			{
 				"name":"Rogelio",
 				"age":21,
-				"intereses":"Technology"
+				"passions":"Technology",
+				"school":"UANL"
 				
 			},
 			null,
