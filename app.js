@@ -9,6 +9,7 @@ const db = require('./db');
 
 // define the first route
 app.get("/", function (req, res) {
+	console.log("Hola mundo");
 	db.connection().then(
 		(value) => {
 			let response = {
