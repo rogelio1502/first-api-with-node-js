@@ -2,25 +2,27 @@
 const express = require("express")
 const app = express()
 
+const db = require('./db');
+
 // use the express-static middleware
 //app.use(express.static("public"))
 
 // define the first route
 app.get("/", function (req, res) {
-	res.status(200).end(
-		JSON.stringify(
-			{
-				"name":"Rogelio",
-				"age":21,
-				"passions":"Technology",
-				"school":"UANL"
-				
-			},
-			null,
-			4
+	db.connection().then(
+		(value) => {
+			let response = {
+				"Connection" : "OK"
+			}
+			if(value == false){
+				response.Connection = "Failed";
+			}
 
-		)
-	);
+			
+			res.status(200).json(response);
+
+		}
+	)
 	
    })
 
