@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config()
 
-const sequelize = new Sequelize(process.env.URI_DB) // Example for postgres
+const sequelize = new Sequelize(process.env.DATABASE_URL) // Example for postgres
 
 const connection = async () => {
     try {
