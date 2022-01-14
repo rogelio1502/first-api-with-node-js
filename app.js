@@ -13,10 +13,13 @@ app.get("/", function (req, res) {
 	db.connection().then(
 		(value) => {
 			let response = {
-				"Connection" : "OK"
+				"Connection" : "Failed"
 			}
-			if(value == false){
-				response.Connection = "Failed";
+			if(value == true){
+				response.Connection = "OK";
+			}else{
+				response.error = JSON.stringify(value.parent);
+
 			}
 
 			
